@@ -4,9 +4,9 @@
         <div class="col-lg-4  mt-5 pt-3 px-5">
             <div class="d-flex align-items-center">
                 <div class="rounded-start border-input w-100">
-                    <input class="input px-3 py-2 w-100" type="text" placeholder="dd/mm/yyyy">
+                    <input class="input px-3 py-2 w-100" #input type="text" placeholder="dd/mm/yyyy">
                 </div>
-                <div class="rounded-end btn-primary-calendar padding">
+                <div class="rounded-end btn-primary-calendar padding" (click)="searchDay(input)">
                     <img class="text-light" src="assets/Search.png" alt="">
                 </div>
             </div>
@@ -14,7 +14,8 @@
                 <p class="text-white fw-500 fs-18 m-0">
                     Search Result :
                 </p>
-                <p class='ms-3 fw-600 fs-30 m-0 text-white'>No Result</p>
+                <p *ngIf="day" class='ms-3 fw-600 fs-30 m-0 text-white'>{{days[day]||"No Result"}}</p>
+                <p *ngIf="!day" class='ms-3 fw-600 fs-30 m-0 text-white'>{{"No Result"}}</p>
             </div>
         </div>
         <div class="col-lg-4"></div>
