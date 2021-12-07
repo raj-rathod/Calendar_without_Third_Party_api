@@ -1,15 +1,47 @@
 .padding{
     padding: 10px 15px;
 }
-.fw-500{
+.next-btn{
+    transform: rotate(-180deg);
+    transition: 0s;
+}
+.day{
+    color:#fafafa !important;
+    font-size: 16px;
     font-weight: 500;
 }
-.fw-600{
+
+.day-active{
+    color: #20847d !important; 
+    font-size: 20px !important;
+    line-height: 18px;  
     font-weight: 600;
 }
-.fs-18{
-    font-size: 18px;
+.day-unactive{
+    color:#7C7F86 !important;
+    font-size: 16px;
+    font-weight: 500
 }
-.fs-30{
-    font-size: 30px;
+.sunday{
+    color: #7e0707 !important; 
+    font-size: 16px !important;
+    font-weight: 600; 
+}
+.modal-content{
+    background: #1D1F23;
+    box-shadow: inset 2px 2px 24px -4px rgba(255, 255, 255, 0.16), inset -2px -2px 24px -2px #000000;
+    border-radius: 4px;
+}
+.rounded-btn{
+    border-radius:150px;
+    cursor: pointer;
+    border:1px solid #fafafa;
+    text-align: center;
+}
+.rounded-btn-active{
+    border-radius:150px;
+    cursor: pointer;
+    border:1px solid #20847d;
+    text-align: center; 
+    background:#20847d33;
 }

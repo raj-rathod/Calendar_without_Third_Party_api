@@ -1,22 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { Dates } from 'src/app/helper/interface';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { ActionKey, Dates, Months } from 'src/app/helper/interface';
 import { CalendarService } from '../calendar.service';
-import { Days} from 'src/app/helper/constant'
+import { Days, MonthNames} from 'src/app/helper/constant'
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit,AfterViewInit {
   inputDate?: Dates;
   day?:number;
   days = Days;
+  monthsName = MonthNames;
+  currentDate = new Date();
+  currentYear = this.currentDate.getFullYear();
+  currentMonth = this.currentDate.getMonth()+1;
+  months?: Months[];
   constructor(
-    private calendarService: CalendarService
+    private calendarService: CalendarService,
+    private elRef: ElementRef,
   ) { }
 
   ngOnInit(): void {
+    this.months = this.calendarService.getMonthData(this.currentMonth, this.currentYear);
+  }
+  ngAfterViewInit(): void{
+    this.selectMonth(this.currentMonth-1, this.currentMonth);
   }
 
   searchDay(input:any): void{
@@ -33,15 +43,14 @@ export class CalendarComponent implements OnInit {
             alert("Year should be greater than 1599")
           }else{
             if(+date[1]==2){
-                if(this.checkLeapYear(+date[2])){
+                if(this.calendarService.checkLeapYear(+date[2])){
                   if(+date[0]>0 && +date[0]<30){
                     this.inputDate = {
                       day: +date[0],
-                      month: this.getMonth(+date[1]),
+                      month: this.calendarService.getMonth(+date[1]),
                       century: Math.floor(+date[2]/100),
-                      year: this.getYear(this.getMonth(+date[1]),+date[2]%100)
+                      year: this.calendarService.getYear(this.calendarService.getMonth(+date[1]),+date[2]%100)
                     }
-                    console.log(this.inputDate);
                     this.day = this.calendarService.getDay(this.inputDate);
                   }else{
                     alert("Invalid day")
@@ -50,11 +59,10 @@ export class CalendarComponent implements OnInit {
                   if(+date[0]>0 && +date[0]<29){
                     this.inputDate = {
                       day: +date[0],
-                      month: this.getMonth(+date[1]),
+                      month: this.calendarService.getMonth(+date[1]),
                       century: Math.floor(+date[2]/100),
-                      year: this.getYear(this.getMonth(+date[1]),+date[2]%100)
+                      year: this.calendarService.getYear(this.calendarService.getMonth(+date[1]),+date[2]%100)
                     }
-                    console.log(this.inputDate);
                     this.day = this.calendarService.getDay(this.inputDate);
                   }else{
                     alert("Invalid day")
@@ -63,11 +71,10 @@ export class CalendarComponent implements OnInit {
             }else{
               this.inputDate = {
                 day: +date[0],
-                month: this.getMonth(+date[1]),
+                month: this.calendarService.getMonth(+date[1]),
                 century: Math.floor(+date[2]/100),
-                year: this.getYear(this.getMonth(+date[1]),+date[2]%100)
+                year: this.calendarService.getYear(this.calendarService.getMonth(+date[1]),+date[2]%100)
               }
-              console.log(this.inputDate);
               this.day = this.calendarService.getDay(this.inputDate);
             }
           
@@ -78,27 +85,60 @@ export class CalendarComponent implements OnInit {
      }
   }
 
-  getMonth(month: number): number{
-    switch(month-2){
-      case -1: return 11;
-      case 0 : return 12;
-      default: return month-2;
-    }
-  }
-  getYear(month: number,year: number): number{
-    if(month>10){
-      return year-1;
+
+
+  nextMonth(): void{
+    if(this.currentMonth+1 > 12){
+      this.currentMonth = 1;
+      this.currentYear++;
     }else{
-      return year;
+      this.currentMonth++;
+    }
+    this.months = this.calendarService.getMonthData(this.currentMonth, this.currentYear);
+  }
+
+  prevMonth(): void{
+    if(this.currentMonth-1 < 1){
+      this.currentMonth = 12;
+      this.currentYear--;
+    }else{
+      this.currentMonth--;
+    }
+    this.months = this.calendarService.getMonthData(this.currentMonth, this.currentYear);
+  }
+  nextYear(): void{
+    this.currentYear++;
+    this.currentMonth = 1;
+    this.selectMonth(this.currentMonth-1, this.currentMonth);
+  }
+
+  prevYear(): void{
+   this.currentYear--;
+   this.currentMonth = 1;
+   this.selectMonth(this.currentMonth-1, this.currentMonth);
+  }
+
+  selectMonth(index: number, month: number): void{
+    const monthRef =  this.elRef.nativeElement.querySelectorAll('.select-month');
+    for(let i = 0; i < monthRef.length; i++){
+      if(index === i){
+        monthRef[i].className = "rounded-btn-active mb-3 py-2 select-month";
+        this.currentMonth = month;
+        this.months = this.calendarService.getMonthData(this.currentMonth, this.currentYear);
+      }else{
+        monthRef[i].className = "rounded-btn mb-3 py-2 select-month";
+      }
     }
   }
 
-  checkLeapYear(year: number): boolean{
-    if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
-        return true;
-    } else {
-        return false;
+  dateSelect(keys: ActionKey): void{
+    if(keys.isNext){
+      this.nextMonth();
+    }else if(keys.isPrevious){
+      this.prevMonth();
+    }else{
+      return;
     }
-}
+  }
 
 }

@@ -7,7 +7,7 @@ export enum Days{
     Friday,
     Saturday,
 }
-export const enum Months{
+export enum MonthNames{
    January=1,
    February,
    March,
@@ -21,4 +21,6 @@ export const enum Months{
    November,
    December
 }
+export const Monthdays: number[] =[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
  

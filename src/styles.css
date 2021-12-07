@@ -24,3 +24,32 @@
    border-top: 1.5px solid #7C7F86;
    border-left: 1.5px solid #7C7F86;
 }
+.text-grey{
+    color: #7C7F86;
+}
+.tab{
+    cursor: pointer;
+}
+.btn-move{
+    width:30px;
+    height:30px;
+}
+
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fs-18{
+    font-size: 18px;
+}
+.fs-16{
+    font-size: 16px;
+}
+.fs-30{
+    font-size: 30px;
+}
+.fs-12{
+    font-size: 12px;
+}
