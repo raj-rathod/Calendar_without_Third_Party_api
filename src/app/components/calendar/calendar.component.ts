@@ -12,6 +12,7 @@ export class CalendarComponent implements OnInit,AfterViewInit {
   inputDate?: Dates;
   day?:number;
   days = Days;
+  dayshowLimit = 3;
   monthsName = MonthNames;
   currentDate = new Date();
   currentYear = this.currentDate.getFullYear();
@@ -24,6 +25,10 @@ export class CalendarComponent implements OnInit,AfterViewInit {
 
   ngOnInit(): void {
     this.months = this.calendarService.getMonthData(this.currentMonth, this.currentYear);
+    let viewportWidth = window.innerWidth;
+    if( viewportWidth < 500 ){
+        this.dayshowLimit = 1;
+    }
   }
   ngAfterViewInit(): void{
     this.selectMonth(this.currentMonth-1, this.currentMonth);

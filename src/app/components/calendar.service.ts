@@ -27,9 +27,7 @@ export class CalendarService {
        century: Math.floor(year / 100),
        year:this.getYear(this.getMonth(month), year % 100)
      }
-     console.log(date)
      this.startDay = this.getDay(date);
-     console.log(this.startDay);
      this.totalDays = this.getMonthDays(month, year);
      this.totalDaysPreviousMonth = this.getPreviousMonthDays(month, year);
      const totalWeeks = Math.ceil((this.totalDays+this.startDay)/7);
@@ -95,7 +93,6 @@ export class CalendarService {
   getDay(date: Dates): number { 
     let day = (date.day + Math.floor(2.6*date.month-0.2)-2 * date.century + date.year + Math.floor(date.century/4)+Math.floor(date.year/4))%7;
     day = ((day % 7) + 7) % 7;
-    console.log(day);
     return day;
   }
 
