@@ -1,27 +1,39 @@
 # Calendar
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+This project is a `Custom Calendar`, it is build without any third party libraries and API's,
+it contains a search section for searching a day on perticular date , u can simply enter date in formate `dd/mm/yyyy` and get result as a day name
+### Search section View
 
-## Development server
+<div align="center">
+<img src="./images/search.png" width="600px"</img> 
+</div>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+###  Desktop View 
+full calendar view in desktop. 
 
-## Code scaffolding
+<div align="center">
+<img src="./images/desktop-view.png" width="600px"</img> 
+</div>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Desktop View with pop
+it is showing the popup for selecting `month` and `year`
 
-## Build
+<div align="center">
+<img src="./images/desktop-with-popup.png" width="600px"</img> 
+</div>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Mobile view 
+it is fully responsive with all desktop platforms and mobile devices
 
-## Running unit tests
+<div align="center">
+<img src="./images/mobile-view.png" width="400px"</img> 
+</div>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Mobile View with pop
+it is showing the popup for selecting `month` and `year`
 
-## Running end-to-end tests
+<div align="center">
+<img src="./images/mobile-view-with-popup.png" width="400px"</img> 
+</div>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
