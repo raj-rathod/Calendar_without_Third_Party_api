@@ -27,21 +27,13 @@ it is showing the popup for selecting `month` and `year`
 it is fully responsive with all desktop platforms and mobile devices
 
 <div align="center">
-<img src="./images/mobile-view.png" width="600px"</img> 
+<img src="./images/mobile-view.png" width="400px"</img> 
 </div>
 
 ### Mobile View with pop
 it is showing the popup for selecting `month` and `year`
 
 <div align="center">
-<img src="./images/mobile-view-with-popup.png" width="600px"</img> 
+<img src="./images/mobile-view-with-popup.png" width="400px"</img> 
 </div>
 
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
