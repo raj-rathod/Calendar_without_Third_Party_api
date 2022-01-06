@@ -42,4 +42,4 @@ it is showing the popup for selecting `month` and `year`
 [Instagram](https://www.instagram.com/raj_rathod1313/?hl=en)
 [Twitter](https://twitter.com/Rajesh946055)
 [Sololearn](https://www.sololearn.com/profile/10902790#_=_)
-[Gmail](rajeshrathore05011998@gmail.com)
+
