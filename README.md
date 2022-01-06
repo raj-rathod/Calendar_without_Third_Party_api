@@ -3,8 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 This project is a `Custom Calendar`, it is build without any third party libraries and API's,
 it contains a search section for searching a day on perticular date , u can simply enter date in formate `dd/mm/yyyy` and get result as a day name
-   ### Search section View
-     <img src="images/search.png">
+### Search section View
+<div align="center">
+<img src="./images/search.png" width="600px"</img> 
+</div>
 
 ## Development server
 
