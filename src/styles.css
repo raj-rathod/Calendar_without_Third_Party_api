@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+.main-bg{
+    background: #202020;
+}
+.btn-primary-calendar{
+    background: #20847d;
+    cursor: pointer;
+    color: #fff;
+}
+.input{
+    border:none !important;
+    background:transparent !important;
+    outline:none !important;
+    color: #fcfcfc;
+}
+.input::placeholder{
+    font-size:16px;
+    font-weight: 500;
+    color:#7C7F86;
+}
+.border-input{
+   border-bottom: 1.5px solid #7C7F86;
+   border-top: 1.5px solid #7C7F86;
+   border-left: 1.5px solid #7C7F86;
+}
+.text-grey{
+    color: #7C7F86;
+}
+.tab{
+    cursor: pointer;
+}
+.btn-move{
+    width:30px;
+    height:30px;
+}
+
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fs-18{
+    font-size: 18px;
+}
+.fs-16{
+    font-size: 16px;
+}
+.fs-30{
+    font-size: 30px;
+}
+.fs-12{
+    font-size: 12px;
+}

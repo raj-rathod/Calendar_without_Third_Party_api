@@ -1,0 +1,86 @@
+<div class="container-fluid vh-100 main-bg">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4  mt-5 pt-3 px-lg-5">
+            <div class="d-flex align-items-center">
+                <div class="rounded-start border-input w-100">
+                    <input class="input px-3 py-2 w-100" #input type="text" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="rounded-end btn-primary-calendar padding" (click)="searchDay(input)">
+                    <img class="text-light" src="assets/Search.png" alt="">
+                </div>
+            </div>
+            <div class="d-flex align-items-center rounded border border-secondary border-2 mt-4 p-3">
+                <p class="text-white fw-500 fs-18 m-0">
+                    Search Result :
+                </p>
+                <p *ngIf="day" class='ms-3 fw-600 fs-30 m-0 text-white'>{{days[day]||"No Result"}}</p>
+                <p *ngIf="!day" class='ms-3 fw-600 fs-30 m-0 text-white'>{{"No Result"}}</p>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 col-12">
+            <div class="d-flex justify-content-between border-bottom border-secondary border-2 pb-3">
+                <p class="fs-16 fw-500 text-grey tab m-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                   {{monthsName[currentMonth].substring(0,3)}}, {{currentYear}}
+                </p>
+                <div class="d-flex">
+                  <div class="btn-primary-calendar rounded-circle text-center btn-move" (click)="prevMonth()">
+                      <img src="assets/Back-white.png" alt="">
+                  </div>
+                  <div class="btn-primary-calendar text-center next-btn rounded-circle ms-3 btn-move" (click)="nextMonth()">
+                    <img src="assets/Back-white.png" alt="">
+                  </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-lg-4 mt-3">
+               <div class="col-lg-10 row col-12">
+                   <div class="row">
+                        <div class="col" *ngFor="let day of [1,1,1,1,1,1,1],let i = index">
+                            <span class="fs-16 fw-500 text-grey"> {{days[i].substring(0,dayshowLimit)}}</span>
+                        </div>
+                   </div>
+                   <div class="row mt-2" *ngFor="let week of months">
+                    <div class="col" *ngFor="let day of week?.days,let i = index">
+                        <div (click)="dateSelect(week.keys[i])"
+                        [class]="week.keys[i].isNext ||week.keys[i].isPrevious?
+                        'tab day-unactive ':i==0?'sunday':week.keys[i].isActive?'tab day-active':'day'">
+                            <span class="ms-lg-2 ms-0"> {{day}}</span>
+                        </div>
+                    </div>
+               </div>
+
+               </div>
+
+            </div>
+        </div>
+        <div class="col-lg-12"></div>
+    </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content p-3">
+            <div class="d-flex justify-content-between align-items-center border-bottom border-secondary border-2 pb-3">
+                <div class="btn-primary-calendar rounded-circle text-center btn-move" (click)="prevYear()">
+                    <img src="assets/Back-white.png" alt="">
+                </div>
+                <p class="fw-600 fs-18 text-white m-0">{{currentYear}}</p>
+                <div class="btn-primary-calendar text-center next-btn rounded-circle ms-3 btn-move" (click)="nextYear()">
+                  <img src="assets/Back-white.png" alt="">
+                </div>
+            </div>
+            <div class="row mt-4 px-lg-4 px-2">
+               <div class="col-lg-3 col-4" *ngFor="let month of [1,2,3,4,5,6,7,8,9,10,11,12]; let i = index">
+                   <div class="rounded-btn mb-3 py-2 select-month" (click)="selectMonth(i, month)">
+                     <p class="fs-12 fw-500 text-light m-0"> {{monthsName[month]}}</p>
+                   </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
