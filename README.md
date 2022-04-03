@@ -36,6 +36,7 @@ it is showing the popup for selecting `month` and `year`
 <div align="center">
 <img src="./images/mobile-view-with-popup.png" width="400px"</img> 
 </div>
+
 ### Hi there, I'm <a href="https://www.sololearn.com/profile/10902790#_=_" target="_blank">Rajesh Rathore</a> <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
 
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-0e76a8?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/rajesh-rathore-0501/)
