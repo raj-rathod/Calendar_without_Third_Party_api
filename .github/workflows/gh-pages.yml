@@ -39,5 +39,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: calendar-release
-        publish_dir: dist/Calendar_without_Third_Party_api
+        publish_dir: dist/calendar
         enable_jekyll: true
